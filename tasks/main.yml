@@ -1,0 +1,14 @@
+---
+
+- name: "Add Docker Registry Credentials"
+  include_tasks: single.yml
+  loop: "{{ docker_registries }}"
+  loop_control:
+    loop_var: docker_registry
+  when:
+    - docker_registries is defined
+
+- name: "Add Docker Registry Credential"
+  include_tasks: single.yml
+  when:
+    - docker_registry is defined
