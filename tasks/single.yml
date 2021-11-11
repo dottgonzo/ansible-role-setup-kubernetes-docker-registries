@@ -1,6 +1,6 @@
 
 - name: Add Registry Credentials for "{{docker_registry.name}}"
-  command: "kubectl create secret docker-registry {{ docker_registry.name+'-registry-cred --docker-server='+docker_registry.registry_hostname + ' --docker-username=' + docker_registry.registry_user_email + ' --docker-password=' + docker_registry.registry_user_passwd + ' --docker-email=' + docker_registry.registry_user_email + ' --namespace ' + ns}}"
+  command: "kubectl create secret docker-registry {{ docker_registry.name+'-registry-cred --docker-server=\"'+docker_registry.registry_hostname + '\" --docker-username=\"' + docker_registry.registry_user_email + '\" --docker-password=\"' + docker_registry.registry_user_passwd + '\" --docker-email=\"' + docker_registry.registry_user_email + '\" --namespace ' + ns}}"
   ignore_errors: True
   loop: "{{ docker_registry.registry_namespaces }}"
   loop_control:
